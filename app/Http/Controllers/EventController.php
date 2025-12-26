@@ -19,7 +19,7 @@ class EventController extends Controller
      */
     public function create()
     {
-        //
+        return view('event.regist');
     }
 
     /**
@@ -35,7 +35,7 @@ class EventController extends Controller
      */
     public function show(string $id)
     {
-        //
+        return view('event.detail');
     }
 
     /**

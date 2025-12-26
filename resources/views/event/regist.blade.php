@@ -28,18 +28,9 @@
   </div>
 </nav>
 
-  <!-- HERO -->
-  <livewire:event.hero />
-
-  <!-- EVENT HIGHLIGHT -->
-  <livewire:event.newest />
-
-  <!-- ABOUT -->
-  <livewire:event.about />
-
-  <!-- EVENTS LIST -->
-  <livewire:event.list />
-
+  <!-- Detail -->
+  <livewire:event.regist />
+ 
   <!-- FOOTER -->
   <livewire:event.footer />
 </x-layouts.app>

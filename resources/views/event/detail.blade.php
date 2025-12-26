@@ -28,15 +28,9 @@
   </div>
 </nav>
 
-  <!-- HERO -->
-  <livewire:event.hero />
-
-  <!-- EVENT HIGHLIGHT -->
-  <livewire:event.newest />
-
-  <!-- ABOUT -->
-  <livewire:event.about />
-
+  <!-- Detail -->
+  <livewire:event.detail />
+ 
   <!-- EVENTS LIST -->
   <livewire:event.list />
 
