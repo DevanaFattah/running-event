@@ -15,7 +15,7 @@ state([
 <section class="bg-[#F6E69E] min-h-screen py-12 px-4 md:px-0">
     <div class="max-w-6xl mx-auto flex flex-col md:flex-row gap-8 items-start">
         
-        <div class="w-full md:w-2/3 bg-[#FFF9F0] rounded-[2.5rem] p-8 md:p-10 shadow-xl">
+        <div class="w-full md:w-2/3 bg-[#FFF9F0] rounded-[1rem] p-8 md:p-10 shadow-xl">
             <div class="flex flex-col md:flex-row gap-8 border-b-4 border-[#0D5F77] pb-8 mb-8">
                 <div class="w-full md:w-1/2">
                     <div class="bg-[#0D5F77] rounded-t-3xl p-4 aspect-video flex items-center justify-center relative">
@@ -69,7 +69,7 @@ state([
         </div>
 
         <div class="w-full md:w-1/3 space-y-6">
-            <div class="bg-[#FFF9F0] rounded-[2.5rem] p-8 shadow-xl space-y-8">
+            <div class="bg-[#FFF9F0] rounded-[1rem] p-8 shadow-xl space-y-8">
                 <div class="space-y-6">
                     <div class="flex items-start gap-4">
                         <div class="bg-[#0D5F77] p-2 rounded-lg text-white">
