@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use Exception;
 use Illuminate\Http\Request;
+use Symfony\Component\Process\Process;
+
 
 class EventController extends Controller
 {
@@ -10,8 +13,36 @@ class EventController extends Controller
      * Display a listing of the resource.
      */
     public function index()
-    {
-        return view('event.index');
+    { 
+        $process = new Process([
+            'py',
+            base_path('resources/scripts/scraper.py')
+        ]);
+
+        $process->run();
+
+        dd($process->getOutput(), $process->getErrorOutput());
+        // $python = env('PYTHON_PATH');
+        // $script = base_path(env('SCRIPT_PATH'));
+
+        // $result = Process::run([
+        //     $python,
+        //     $script,
+        // ]);
+
+        // if (! $result->successful()) {
+        //     dd('Python error:', $result->errorOutput());
+        // }
+        // $output = trim($result->output());
+
+        // $data = json_decode($output, true);
+
+        // if (json_last_error() !== JSON_ERROR_NONE) {
+        //     dd('Invalid JSON from Python', $output);
+        // }
+
+        // dd($data);
+        
     }
 
     /**
