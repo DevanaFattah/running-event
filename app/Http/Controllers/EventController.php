@@ -14,14 +14,14 @@ class EventController extends Controller
      */
     public function index()
     { 
-        $process = new Process([
-            'py',
-            base_path('resources/scripts/scraper.py')
-        ]);
+        // $process = new Process([
+        //     'py',
+        //     base_path('resources/scripts/scraper.py')
+        // ]);
 
-        $process->run();
+        // $process->run();
 
-        dd($process->getOutput(), $process->getErrorOutput());
+        // dd($process->getOutput(), $process->getErrorOutput());
         // $python = env('PYTHON_PATH');
         // $script = base_path(env('SCRIPT_PATH'));
 
@@ -42,7 +42,8 @@ class EventController extends Controller
         // }
 
         // dd($data);
-        
+
+        return view('event.index');
     }
 
     /**
