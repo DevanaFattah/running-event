@@ -1,6 +1,10 @@
 <x-layouts.event.app>
      <!-- Navbar-->
+<<<<<<< HEAD
 <nav class="bg-[#FFF8E6] border-b border-gray-200">
+=======
+  <nav class="bg-[#FFF8E6] border-b border-gray-200">
+>>>>>>> reno
   <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
     
     <!-- Logo -->
@@ -32,10 +36,17 @@
   <livewire:event.hero />
 
   <!-- EVENT HIGHLIGHT -->
+<<<<<<< HEAD
   <livewire:event.newest />
 
   <!-- ABOUT -->
   <livewire:event.about />
+=======
+  <livewire:event.newest-event />
+
+  <!-- ABOUT -->
+  <livewire:event.about-section />
+>>>>>>> reno
 
   <!-- EVENTS LIST -->
   <livewire:event.list />
