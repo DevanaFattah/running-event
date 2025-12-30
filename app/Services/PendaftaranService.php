@@ -27,15 +27,16 @@ class PendaftaranService
         $eventId = $data['event_id'] ?? 1;
         $event = Event::findOrFail($eventId);
 
-        // Hitung total pendaftar untuk event ini dan periksa kuota
-        $totalPendaftar = Pendaftaran::where('event_id', $event->id)->count();
-        if ($totalPendaftar >= $event->kuota) {
-            throw new \Exception('Kuota kategori ini sudah penuh');
-        }
+        // Ambil kategori dari request
+        $kategori = $data['kategori'] ?? null;
+
+        // Cek kuota untuk kategori yang dipilih
+        $this->cekKuota($kategori);
 
         Pendaftaran::create([
             'peserta_id' => $peserta->id,
             'event_id' => $event->id,
+            'kategori' => $kategori,
             'bib' => 'BIB-' . rand(1000,9999),
             'status' => 'terdaftar',
         ]);

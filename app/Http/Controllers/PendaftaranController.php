@@ -22,6 +22,7 @@ public function store(Request $request)
         'nama' => 'required',
         'email' => 'required|email',
         'nomor_telepon' => 'required',
+        'kategori' => 'required|in:5K,10K',
         'event_id' => 'required|integer|exists:events,id',
     ]);
        // lanjut proses simpan data

@@ -11,10 +11,14 @@
         <option value="P">Perempuan</option>
     </select>
 
-    <select name="event_id">
-        <option value="1">5 KM</option>
-        <option value="2">10 KM</option>
+    <label>Kategori Lomba</label>
+    <select name="kategori" required>
+        <option value="">-- Pilih Kategori --</option>
+        <option value="5K">5 KM</option>
+        <option value="10K">10 KM</option>
     </select>
+
+    <input type="hidden" name="event_id" value="1">
 
     <button type="submit">Daftar</button>
 </form>

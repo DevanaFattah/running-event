@@ -9,6 +9,7 @@ class Pendaftaran extends Model
     protected $fillable = [
         'peserta_id',
         'event_id',
+        'kategori',
         'bib',
         'status',
         'status_bib'
