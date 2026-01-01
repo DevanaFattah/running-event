@@ -12211,3 +12211,15 @@
 #66 D:\\Kodingan\\PBO\\running-event-register\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\resources\\server.php(23): require_once('D:\\\\Kodingan\\\\PBO...')
 #67 {main}
 "} 
+[2026-01-01 12:19:29] local.ERROR: Cannot use App\Http\Controllers\EventController as EventController because the name is already in use {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot use App\\Http\\Controllers\\EventController as EventController because the name is already in use at D:\\Kodingan\\PBO\\running-event-register\\routes\\web.php:12)
+[stacktrace]
+#0 {main}
+"} 
+[2026-01-01 12:19:48] local.ERROR: Cannot use App\Http\Controllers\EventController as EventController because the name is already in use {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot use App\\Http\\Controllers\\EventController as EventController because the name is already in use at D:\\Kodingan\\PBO\\running-event-register\\routes\\web.php:12)
+[stacktrace]
+#0 {main}
+"} 
+[2026-01-01 12:20:02] local.ERROR: Cannot use App\Http\Controllers\EventController as EventController because the name is already in use {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot use App\\Http\\Controllers\\EventController as EventController because the name is already in use at D:\\Kodingan\\PBO\\running-event-register\\routes\\web.php:12)
+[stacktrace]
+#0 {main}
+"} 

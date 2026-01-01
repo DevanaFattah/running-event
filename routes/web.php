@@ -6,15 +6,10 @@
 | Public Routes
 |--------------------------------------------------------------------------
 */
-use App\Http\Controllers\EventController;
-use App\Http\Controllers\AdminController;
 use App\Http\Controllers\BibController;
 use App\Http\Controllers\EventController;
 use App\Http\Controllers\PendaftaranController;
 use App\Http\Controllers\AdminDashboardController;
-use Illuminate\Support\Facades\Route;
-use Laravel\Fortify\Features;
-use Livewire\Volt\Volt;
 use App\Http\Controllers\AdminController;
 use Illuminate\Support\Facades\Route;
 use Laravel\Fortify\Features;

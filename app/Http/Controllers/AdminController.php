@@ -3,14 +3,13 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Pendaftaran;
 
 class AdminController extends Controller
 {
-    public function index()
+    public function dashboard()
     {
-        // State Statistik Berdasarkan 20 Data
-        
-    $stats = [
+        $stats = [
         'total_peserta' => 20,
         'total_pendaftaran' => 20,
         'peserta_5k' => 8,
@@ -43,21 +42,6 @@ class AdminController extends Controller
     ];
 
         return view('dashboard', compact('stats', 'registrations'));
-    }
-}
-
-<?php
-
-namespace App\Http\Controllers;
-
-use App\Models\Pendaftaran;
-use Illuminate\Http\Request;
-
-class AdminController extends Controller
-{
-    public function dashboard()
-    {
-        return view('admin.dashboard');
     }
 
     public function pendaftaran()
