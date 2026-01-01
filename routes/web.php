@@ -1,7 +1,7 @@
 <?php
 
 use App\Http\Controllers\EventController;
-use App\Http\Controllers\AdminController;
+use App\Http\Controllers\AuthorizedController;
 use Illuminate\Support\Facades\Route;
 use Laravel\Fortify\Features;
 use Livewire\Volt\Volt;
@@ -11,7 +11,7 @@ Route::get('/', function () {
     return view('welcome');
 })->name('home');
 
-Route::controller(AdminController::class)->group(function () {
+Route::controller(AuthorizedController::class)->group(function () {
     Route::get('dashboard', 'index')->middleware(['auth', 'verified'])->name('dashboard');
 });
 
