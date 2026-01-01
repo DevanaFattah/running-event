@@ -10,7 +10,7 @@ class AdminDashboardController extends Controller
 {
     public function index()
     {
-        return view('admin.dashboard', [
+        return view('dashboard', [
             'totalPeserta' => Peserta::count(),
             'totalPendaftaran' => Pendaftaran::count(),
             'total5K' => Pendaftaran::whereHas('event', function ($q) { $q->where('kategori', '5K'); })->count(),
@@ -19,4 +19,3 @@ class AdminDashboardController extends Controller
         ]);
     }
 }
-
