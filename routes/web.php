@@ -1,5 +1,12 @@
 <?php
 
+
+/*
+|--------------------------------------------------------------------------
+| Public Routes
+|--------------------------------------------------------------------------
+*/
+use App\Http\Controllers\EventController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\BibController;
 use App\Http\Controllers\EventController;
@@ -8,12 +15,11 @@ use App\Http\Controllers\AdminDashboardController;
 use Illuminate\Support\Facades\Route;
 use Laravel\Fortify\Features;
 use Livewire\Volt\Volt;
-
-/*
-|--------------------------------------------------------------------------
-| Public Routes
-|--------------------------------------------------------------------------
-*/
+use App\Http\Controllers\AdminController;
+use Illuminate\Support\Facades\Route;
+use Laravel\Fortify\Features;
+use Livewire\Volt\Volt;
+use Symfony\Contracts\EventDispatcher\Event;
 
 Route::get('/', function () {
     return view('welcome');
@@ -64,6 +70,16 @@ Route::middleware(['auth'])->prefix('admin')->group(function () {
 Route::middleware(['auth'])->group(function () {
     Route::redirect('settings', 'settings/profile');
 
+Route::controller(AdminController::class)->group(function () {
+    Route::get('dashboard', 'index')->middleware(['auth', 'verified'])->name('dashboard');
+});
+
+Route::resource('event',EventController::class);
+
+
+Route::middleware(['auth'])->group(function () {
+    Route::redirect('settings', 'settings/profile');
+    
     Volt::route('settings/profile', 'settings.profile')->name('profile.edit');
     Volt::route('settings/password', 'settings.password')->name('user-password.edit');
     Volt::route('settings/appearance', 'settings.appearance')->name('appearance.edit');
@@ -76,6 +92,7 @@ Route::middleware(['auth'])->group(function () {
                         Features::twoFactorAuthentication(),
                         'confirmPassword'
                     ),
+                    Features::optionEnabled(Features::twoFactorAuthentication(), 'confirmPassword'),
                 ['password.confirm'],
                 [],
             ),
@@ -86,3 +103,4 @@ Route::middleware(['auth'])->group(function () {
 Route::get('/admin/dashboard', 
     [AdminDashboardController::class, 'index']
 )->name('admin.dashboard');
+});
