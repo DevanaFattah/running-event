@@ -12,7 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::table('pendaftarans', function (Blueprint $table) {
-            if (!Schema::hasColumn('pendaftarans', 'status_bib')) {
+            if (!Schema::hasColumn('pendaftarans', 'status')) {
                 $table->enum('status_bib', ['belum_diambil', 'sudah_diambil'])
                     ->default('belum_diambil');
             }

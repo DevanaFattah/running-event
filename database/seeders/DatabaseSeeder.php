@@ -2,9 +2,13 @@
 
 namespace Database\Seeders;
 
+use App\Models\Pendaftaran;
 use App\Models\User;
+use App\Models\event;
+use App\Models\RunningEvent;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+// use Symfony\Contracts\EventDispatcher\Event;
 
 class DatabaseSeeder extends Seeder
 {
@@ -13,7 +17,10 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        // User::factory(10)->create();
+        User::factory(10)->create();
+        // Event::factory(30)->create
+        RunningEvent::factory(2)->create();
+        Pendaftaran::factory(30)->create();
 
         User::firstOrCreate(
             ['email' => 'test@example.com'],

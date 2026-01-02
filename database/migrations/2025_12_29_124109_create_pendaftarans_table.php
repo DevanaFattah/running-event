@@ -15,10 +15,9 @@ return new class extends Migration
             Schema::create('pendaftarans', function (Blueprint $table) {
                 $table->id();
                 $table->foreignId('peserta_id')->constrained('pesertas');
-                $table->foreignId('category_id')->constrained('categories');
-                $table->foreignId('event_id')->constrained('events');
+                $table->foreignId('event_id')->constrained('running_events');
                 $table->string('bib');
-                $table->string('status');
+                $table->enum('status', ['belum_diambil', 'sudah_diambil'])->default('belum_diambil');
                 $table->timestamps();
             });
         }

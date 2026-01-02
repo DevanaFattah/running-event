@@ -14,10 +14,11 @@ return new class extends Migration
         if (!Schema::hasTable('events')) {
             Schema::create('events', function (Blueprint $table) {
                 $table->id();
-                $table->string('nama_event');
-                $table->date('tanggal');
-                $table->string('lokasi');
-                $table->text('deskripsi');
+                $table->string('nama_event')->nullabe();
+                $table->date('tanggal')->nullabe();
+                $table->string('kategori')->nullabe();
+                $table->string('lokasi')->nullabe();
+                $table->text('deskripsi')->nullabe();
                 $table->timestamps();
             });
         }

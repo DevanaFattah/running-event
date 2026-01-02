@@ -20,24 +20,26 @@ Route::get('/', function () {
     return view('welcome');
 })->name('home');
 
-Route::get('/daftar', function () {
-    return view('pendaftaran.form');
-});
 
 Route::post('/daftar', [PendaftaranController::class, 'store']);
 
 /*
-|--------------------------------------------------------------------------
 | User Dashboard
 |--------------------------------------------------------------------------
 */
 
-Route::view('dashboard', 'dashboard')
-    ->middleware(['auth', 'verified'])
-    ->name('dashboard');
+// Route::view('dashboard', 'dashboard')
+//     ->middleware(['auth', 'verified'])
+//     ->name('dashboard');
+Route::controller(AdminController::class)->group(function () {
+    Route::prefix('dashboard')->middleware(['auth', 'verified'])->group(function () {
+        Route::get('/', 'index')->name('dashboard');
+        Route::get('create', 'create')->name('pendaftaran');
+        Route::get('create', 'create')->name('admin.create');
+    });
+});
 
 /*
-|--------------------------------------------------------------------------
 | Admin Routes (AUTH REQUIRED)
 |--------------------------------------------------------------------------
 */
@@ -65,9 +67,6 @@ Route::middleware(['auth'])->prefix('admin')->group(function () {
 Route::middleware(['auth'])->group(function () {
     Route::redirect('settings', 'settings/profile');
 
-Route::controller(AdminController::class)->group(function () {
-    Route::get('dashboard', 'index')->middleware(['auth', 'verified'])->name('dashboard');
-});
 
 Route::resource('event',EventController::class);
 

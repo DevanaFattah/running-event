@@ -1,12 +1,15 @@
 <?php
 
-namespace App\Models;
+// namespace App\Models;
 
-use Illuminate\Database\Eloquent\Model;
+// use Illuminate\Database\Eloquent\Model;
+// use Illuminate\Database\Eloquent\Factories\HasFactory;
 
-class event extends Model
-{
-    protected $fillable = [
-        'nama_event','tanggal','lokasi','deskripsi'
-    ];
-}
+// class Event extends Model
+// {
+//     use HasFactory;
+    
+//     protected $fillable = [
+//         'nama_event','tanggal','lokasi','deskripsi'
+//     ];
+// }

@@ -2,10 +2,15 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\Peserta;
+use App\Models\RunningEvent;
 
 class Pendaftaran extends Model
 {
+    use HasFactory;
+
     protected $fillable = [
         'peserta_id',
         'event_id',
@@ -20,9 +25,9 @@ class Pendaftaran extends Model
         return $this->belongsTo(Peserta::class);
     }
 
-    public function event()
+    public function runningEvent()
     {
-        return $this->belongsTo(Event::class);
+        return $this->belongsTo(RunningEvent::class, 'event_id');
     }
 }
 
