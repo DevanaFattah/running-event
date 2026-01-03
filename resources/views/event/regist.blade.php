@@ -29,7 +29,7 @@
 </nav>
 
   <!-- Detail -->
-  <livewire:event.regist />
+  <livewire:event.regist :event="$event" />
  
   <!-- FOOTER -->
   <livewire:event.footer />

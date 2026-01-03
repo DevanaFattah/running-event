@@ -2,11 +2,6 @@
 
 use function Livewire\Volt\{state};
 
-state([
-    'title' => 'LOREM IPSUM',
-    'description' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed laoreet, erat quis tristique egestas, arcu libero fringilla dui, id viverra lectus sem id diam. Fusce ut commodo est, vel feugiat ante. Suspendisse viverra elit nec lacus vestibulum vehicula.'
-]);
-
 ?>
 
 <section class="bg-[#F9F4E8] py-20 px-6">
