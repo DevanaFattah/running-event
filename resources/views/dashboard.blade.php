@@ -21,12 +21,14 @@
     <div class="bg-white rounded-2xl shadow-2xl border-2 border-gray-200 overflow-hidden">
     <div class="p-6 border-b-2 border-gray-100 bg-white flex justify-between items-center">
         <h3 class="font-black text-gray-800 text-xl tracking-tight">List Pendaftaran Event</h3>
-        <a href="{{ route('admin.create') }}" class="bg-indigo-600 hover:bg-indigo-700 text-white px-5 py-2.5 rounded-xl text-sm font-bold flex items-center gap-2 shadow-lg transition-all active:scale-95">
+        @if (auth()->user()->role === 'superadmin')
+            <a href="{{ route('admin.create') }}" class="bg-indigo-600 hover:bg-indigo-700 text-white px-5 py-2.5 rounded-xl text-sm font-bold flex items-center gap-2 shadow-lg transition-all active:scale-95">
             <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M12 4v16m8-8H4" />
             </svg>
             Tambah Event
         </a>
+        @endif
     </div>
 
     <div class="overflow-x-auto overflow-y-auto max-h-[600px] relative">

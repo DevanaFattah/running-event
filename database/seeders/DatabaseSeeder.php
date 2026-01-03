@@ -17,7 +17,7 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        User::factory(10)->create();
+        User::factory(10)->create(['role' => 'petugas']);
         // Event::factory(30)->create
         $shaRun = RunningEvent::factory(2)->create(['nama_event' => "SHA FUN RUN" ]);
         $malioboroRun = RunningEvent::factory(2)->create(['nama_event' => "MALIOBORO NIGHT RUN" ]);
@@ -32,6 +32,7 @@ class DatabaseSeeder extends Seeder
                 'name' => 'Test User',
                 'password' => 'password',
                 'email_verified_at' => now(),
+                'role' => 'superadmin'
             ]
         );
     }

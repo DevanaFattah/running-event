@@ -318,6 +318,12 @@ namespace App\Models {
     /**
      * App\Models\Kategori
      *
+     * @property \Illuminate\Support\Carbon|null $updated_at
+     * @property \Illuminate\Support\Carbon|null $created_at
+     * @property int $id
+     * @method static \Illuminate\Database\Eloquent\Builder<Kategori>|Kategori whereId($value)
+     * @method static \Illuminate\Database\Eloquent\Builder<Kategori>|Kategori whereCreatedAt($value)
+     * @method static \Illuminate\Database\Eloquent\Builder<Kategori>|Kategori whereUpdatedAt($value)
      * @method static \Illuminate\Database\Eloquent\Builder<Kategori>|Kategori newModelQuery()
      * @method static \Illuminate\Database\Eloquent\Builder<Kategori>|Kategori newQuery()
      * @method static \Illuminate\Database\Eloquent\Builder<Kategori>|Kategori query()
@@ -624,6 +630,8 @@ namespace App\Models {
      * @property \Illuminate\Support\Carbon|null $updated_at
      * @property \Illuminate\Support\Carbon|null $created_at
      * @property mixed $status
+     * @property string $bib
+     * @property string|null $kategori
      * @property int $event_id
      * @property int $peserta_id
      * @property int $id
@@ -632,6 +640,8 @@ namespace App\Models {
      * @method static \Illuminate\Database\Eloquent\Builder<Pendaftaran>|Pendaftaran whereId($value)
      * @method static \Illuminate\Database\Eloquent\Builder<Pendaftaran>|Pendaftaran wherePesertaId($value)
      * @method static \Illuminate\Database\Eloquent\Builder<Pendaftaran>|Pendaftaran whereEventId($value)
+     * @method static \Illuminate\Database\Eloquent\Builder<Pendaftaran>|Pendaftaran whereKategori($value)
+     * @method static \Illuminate\Database\Eloquent\Builder<Pendaftaran>|Pendaftaran whereBib($value)
      * @method static \Illuminate\Database\Eloquent\Builder<Pendaftaran>|Pendaftaran whereStatus($value)
      * @method static \Illuminate\Database\Eloquent\Builder<Pendaftaran>|Pendaftaran whereCreatedAt($value)
      * @method static \Illuminate\Database\Eloquent\Builder<Pendaftaran>|Pendaftaran whereUpdatedAt($value)
@@ -1587,7 +1597,6 @@ namespace App\Models {
     /**
      * App\Models\User
      *
-     * @property string $role
      * @property \Illuminate\Support\Carbon|null $updated_at
      * @property \Illuminate\Support\Carbon|null $created_at
      * @property string|null $remember_token
@@ -1596,6 +1605,7 @@ namespace App\Models {
      * @property string|null $two_factor_secret
      * @property string $password
      * @property \Illuminate\Support\Carbon|null $email_verified_at
+     * @property mixed $role
      * @property string $email
      * @property string $name
      * @property int $id
@@ -1604,6 +1614,7 @@ namespace App\Models {
      * @method static \Illuminate\Database\Eloquent\Builder<User>|User whereId($value)
      * @method static \Illuminate\Database\Eloquent\Builder<User>|User whereName($value)
      * @method static \Illuminate\Database\Eloquent\Builder<User>|User whereEmail($value)
+     * @method static \Illuminate\Database\Eloquent\Builder<User>|User whereRole($value)
      * @method static \Illuminate\Database\Eloquent\Builder<User>|User whereEmailVerifiedAt($value)
      * @method static \Illuminate\Database\Eloquent\Builder<User>|User wherePassword($value)
      * @method static \Illuminate\Database\Eloquent\Builder<User>|User whereTwoFactorSecret($value)
@@ -1612,7 +1623,6 @@ namespace App\Models {
      * @method static \Illuminate\Database\Eloquent\Builder<User>|User whereRememberToken($value)
      * @method static \Illuminate\Database\Eloquent\Builder<User>|User whereCreatedAt($value)
      * @method static \Illuminate\Database\Eloquent\Builder<User>|User whereUpdatedAt($value)
-     * @method static \Illuminate\Database\Eloquent\Builder<User>|User whereRole($value)
      * @method static \Illuminate\Database\Eloquent\Builder<User>|User newModelQuery()
      * @method static \Illuminate\Database\Eloquent\Builder<User>|User newQuery()
      * @method static \Illuminate\Database\Eloquent\Builder<User>|User query()
