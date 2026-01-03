@@ -1,5 +1,6 @@
 <x-layouts.app :title="__('Dashboard')">
     {{-- Statistik Card --}}
+    
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6 mb-8">
         @foreach([
             ['label' => 'Total Peserta', 'value' => $stats['total_peserta'], 'color' => 'blue'],
@@ -20,12 +21,12 @@
     <div class="bg-white rounded-2xl shadow-2xl border-2 border-gray-200 overflow-hidden">
     <div class="p-6 border-b-2 border-gray-100 bg-white flex justify-between items-center">
         <h3 class="font-black text-gray-800 text-xl tracking-tight">List Pendaftaran Event</h3>
-        <button class="bg-indigo-600 hover:bg-indigo-700 text-white px-5 py-2.5 rounded-xl text-sm font-bold flex items-center gap-2 shadow-lg transition-all active:scale-95">
+        <a href="{{ route('admin.create') }}" class="bg-indigo-600 hover:bg-indigo-700 text-white px-5 py-2.5 rounded-xl text-sm font-bold flex items-center gap-2 shadow-lg transition-all active:scale-95">
             <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M12 4v16m8-8H4" />
             </svg>
-            Tambah Peserta
-        </button>
+            Tambah Event
+        </a>
     </div>
 
     <div class="overflow-x-auto overflow-y-auto max-h-[600px] relative">
@@ -74,7 +75,7 @@
                                     ✓ Selesai
                                 </span>
                             @endif
-                            <button class="bg-blue-600 hover:bg-blue-700 text-white px-3 py-1.5 rounded-lg text-[10px] font-bold uppercase">Cetak</button>
+                            <a href="{{ route('cetakBib', $row['id']) }}" class="bg-blue-600 hover:bg-blue-700 text-white px-3 py-1.5 rounded-lg text-[10px] font-bold uppercase">Cetak</a>
                         </div>
                     </td>
                 </tr>

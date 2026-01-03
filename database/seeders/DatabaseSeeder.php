@@ -19,8 +19,12 @@ class DatabaseSeeder extends Seeder
     {
         User::factory(10)->create();
         // Event::factory(30)->create
-        RunningEvent::factory(2)->create();
-        Pendaftaran::factory(30)->create();
+        $shaRun = RunningEvent::factory(2)->create(['nama_event' => "SHA FUN RUN" ]);
+        $malioboroRun = RunningEvent::factory(2)->create(['nama_event' => "MALIOBORO NIGHT RUN" ]);
+
+        // Pendaftaran::factory(30)->create();
+        // Pendaftaran::factory(20)->create(['event_id' => $shaRun->first()->id]);
+        // Pendaftaran::factory(20)->create(['event_id' => $malioboroRun->first()->id]);
 
         User::firstOrCreate(
             ['email' => 'test@example.com'],

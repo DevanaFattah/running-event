@@ -2,11 +2,6 @@
 
 use function Livewire\Volt\{state};
 
-state([
-    'headline' => 'LOREM IPSUM',
-    'subheadline' => 'Lorem ipsum dolor sit amet LOREM IPSUM'
-]);
-
 ?>
 
 <section class="relative w-full h-[400px] md:h-[600px] overflow-hidden">

@@ -20,6 +20,11 @@ Route::get('/', function () {
     return view('welcome');
 })->name('home');
 
+Route::get('event/{id}/daftar', [EventController::class, 'registForm'])->name('event.registForm');
+Route::post('event/{id}/daftar', [EventController::class, 'regist'])->name('event.regist');
+Route::resource('event', EventController::class);
+
+
 
 Route::post('/daftar', [PendaftaranController::class, 'store']);
 
@@ -31,12 +36,14 @@ Route::post('/daftar', [PendaftaranController::class, 'store']);
 // Route::view('dashboard', 'dashboard')
 //     ->middleware(['auth', 'verified'])
 //     ->name('dashboard');
-Route::controller(AdminController::class)->group(function () {
-    Route::prefix('dashboard')->middleware(['auth', 'verified'])->group(function () {
+Route::prefix('dashboard')->middleware(['auth', 'verified'])->group(function () {
+    Route::controller(AdminController::class)->group(function () {
         Route::get('/', 'index')->name('dashboard');
-        Route::get('create', 'create')->name('pendaftaran');
         Route::get('create', 'create')->name('admin.create');
+        Route::post('create', 'store')->name('admin.store');
     });
+    Route::get('/bib/{id}', [BibController::class, 'cetak'])->name('cetakBib');
+    Route::post('/{id}/ambil-bib', [AdminController::class, 'ambilBib'])->name('pendaftaran.ambilBib');
 });
 
 /*
@@ -44,19 +51,14 @@ Route::controller(AdminController::class)->group(function () {
 |--------------------------------------------------------------------------
 */
 
-Route::middleware(['auth'])->prefix('admin')->group(function () {
+// Route::middleware(['auth'])->prefix('admin')->group(function () {
 
-    Route::get('/dashboard', [AdminController::class, 'dashboard']);
-    Route::get('/pendaftaran', [AdminController::class, 'pendaftaran']);
+//     // Route::get('/dashboard', [AdminController::class, 'dashboard']);
+//     // Route::get('/pendaftaran', [AdminController::class, 'pendaftaran']);
 
-    Route::post('/pendaftaran/{id}/ambil-bib',
-        [AdminController::class, 'ambilBib']
-    )->name('pendaftaran.ambilBib');
 
-    Route::get('/bib/{id}', [BibController::class, 'cetak']);
 
-    Route::resource('event', EventController::class);
-});
+// });
 
 /*
 |--------------------------------------------------------------------------
@@ -66,10 +68,6 @@ Route::middleware(['auth'])->prefix('admin')->group(function () {
 
 Route::middleware(['auth'])->group(function () {
     Route::redirect('settings', 'settings/profile');
-
-
-Route::resource('event',EventController::class);
-
 
 Route::middleware(['auth'])->group(function () {
     Route::redirect('settings', 'settings/profile');
@@ -94,7 +92,7 @@ Route::middleware(['auth'])->group(function () {
         ->name('two-factor.show');
 });
 
-Route::get('/admin/dashboard', 
-    [AdminDashboardController::class, 'index']
-)->name('admin.dashboard');
+// Route::get('/admin/dashboard', 
+//     [AdminDashboardController::class, 'index']
+// )->name('admin.dashboard');
 });

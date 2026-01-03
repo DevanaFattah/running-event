@@ -15,7 +15,10 @@ return new class extends Migration
             $table->id();
                 $table->string('nama_event');
                 $table->date('tanggal');
+                $table->string('start');
+                $table->string('flag_off');
                 $table->string('lokasi');
+                $table->string('subLokasi');
                 $table->string('deskripsi');
                 $table->integer('kuota');
                 $table->string('kategori')->default('5KM', '10KM');

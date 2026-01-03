@@ -1,4 +1,4 @@
-@foreach($pendaftarans as $p)
+p@foreach($pendaftarans as $p)
 <tr>
     <td>{{ $p->peserta->nama }}</td>
     <td>{{ $p->event->nama_event }}</td>

@@ -18,7 +18,7 @@ return new class extends Migration
                 $table->foreignId('event_id')->constrained('running_events');
                 $table->string('bib');
                 $table->enum('status', ['belum_diambil', 'sudah_diambil'])->default('belum_diambil');
-                $table->timestamps();
+                $table->timestamps();   
             });
         }
     }

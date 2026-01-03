@@ -2,20 +2,22 @@
 
 use function Livewire\Volt\{state};
 
-state([
-    'event' => [
-        'title' => 'TAHUN BARU(A)N',
-        'date' => '13 DESEMBER 2026',
-        'start' => '06:00 WIB',
-        'flag_off' => '07:00 WIB',
-        'distance' => '5 KM',
-        'elevation' => '70 M',
-        'location_name' => 'WeatherTech Raceway',
-        'location_sub' => 'Laguna Seca'
-    ]
-]);
+// state([
+//     'event' => [
+//         'title' => 'TAHUN BARU(A)N',
+//         'date' => '13 DESEMBER 2026',
+//         'start' => '06:00 WIB',
+//         'flag_off' => '07:00 WIB',
+//         'distance' => '5 KM',
+//         'elevation' => '70 M',
+//         'location_name' => 'WeatherTech Raceway',
+//         'location_sub' => 'Laguna Seca'
+//     ]
+// ]);
 
 ?>
+
+{{-- @dd($event) --}}
 
 <section class="relative w-full bg-[#F6E69E] py-16 overflow-hidden">
     <div class="text-center mb-10">
@@ -45,15 +47,15 @@ state([
                         <flux:icon.map-pin variant="solid" class="w-8 h-8" />
                     </div>
                     <div class="flex flex-col">
-                        <span class="text-xs font-bold text-[#0D5F77]/60 uppercase leading-none">{{ $event['location_name'] }}</span>
-                        <span class="text-lg font-black text-[#0D5F77] leading-tight">{{ $event['location_sub'] }}</span>
+                        <span class="text-xs font-bold text-[#0D5F77]/60 uppercase leading-none">{{ $event['lokasi'] }}</span>
+                        <span class="text-lg font-black text-[#0D5F77] leading-tight">{{ $event['subLokasi'] }}</span>
                     </div>
                 </div>
             </div>
 
             <div class="w-full md:w-1/2 space-y-6">
                 <h3 class="text-3xl md:text-4xl font-black text-[#0D5F77] leading-none">
-                    TAHUN <span class="text-[#FDBF2D]">BARU(A)N</span>
+                    {{ $event['title'] }}</span>
                 </h3>
 
                 <div class="space-y-2">
@@ -76,9 +78,9 @@ state([
                 </div>
 
                 <div class="pt-4">
-                    <button class="w-full md:w-auto bg-[#FDBF2D] hover:bg-[#eab028] text-[#0D5F77] font-black py-4 px-10 rounded-2xl shadow-md transition-all active:scale-95 uppercase text-sm tracking-widest border-b-4 border-black/10">
+                    <a href={{ route('event.show', $event['id']) }} class="w-full md:w-auto bg-[#FDBF2D] hover:bg-[#eab028] text-[#0D5F77] font-black py-4 px-10 rounded-2xl shadow-md transition-all active:scale-95 uppercase text-sm tracking-widest border-b-4 border-black/10">
                         Melu Playon!
-                    </button>
+                    </a>
                 </div>
             </div>
         </div>

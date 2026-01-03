@@ -11,7 +11,11 @@ class RunningEvent extends Model
     use HasFactory;
 
     protected $fillable = [
-        'nama_event','tanggal','lokasi','deskripsi', 'kategori', 'kuota'
+        'nama_event','tanggal','lokasi','deskripsi', 'kategori', 'kuota', 'start', 'deskripsi', 'flag_off', 'lokasi', 'subLokasi'
+    ];
+
+    protected $visible = [
+        'id'
     ];
 
     public function pendaftarans()

@@ -318,12 +318,6 @@ namespace App\Models {
     /**
      * App\Models\Kategori
      *
-     * @property \Illuminate\Support\Carbon|null $updated_at
-     * @property \Illuminate\Support\Carbon|null $created_at
-     * @property int $id
-     * @method static \Illuminate\Database\Eloquent\Builder<Kategori>|Kategori whereId($value)
-     * @method static \Illuminate\Database\Eloquent\Builder<Kategori>|Kategori whereCreatedAt($value)
-     * @method static \Illuminate\Database\Eloquent\Builder<Kategori>|Kategori whereUpdatedAt($value)
      * @method static \Illuminate\Database\Eloquent\Builder<Kategori>|Kategori newModelQuery()
      * @method static \Illuminate\Database\Eloquent\Builder<Kategori>|Kategori newQuery()
      * @method static \Illuminate\Database\Eloquent\Builder<Kategori>|Kategori query()
@@ -630,8 +624,6 @@ namespace App\Models {
      * @property \Illuminate\Support\Carbon|null $updated_at
      * @property \Illuminate\Support\Carbon|null $created_at
      * @property mixed $status
-     * @property string $bib
-     * @property string|null $kategori
      * @property int $event_id
      * @property int $peserta_id
      * @property int $id
@@ -640,8 +632,6 @@ namespace App\Models {
      * @method static \Illuminate\Database\Eloquent\Builder<Pendaftaran>|Pendaftaran whereId($value)
      * @method static \Illuminate\Database\Eloquent\Builder<Pendaftaran>|Pendaftaran wherePesertaId($value)
      * @method static \Illuminate\Database\Eloquent\Builder<Pendaftaran>|Pendaftaran whereEventId($value)
-     * @method static \Illuminate\Database\Eloquent\Builder<Pendaftaran>|Pendaftaran whereKategori($value)
-     * @method static \Illuminate\Database\Eloquent\Builder<Pendaftaran>|Pendaftaran whereBib($value)
      * @method static \Illuminate\Database\Eloquent\Builder<Pendaftaran>|Pendaftaran whereStatus($value)
      * @method static \Illuminate\Database\Eloquent\Builder<Pendaftaran>|Pendaftaran whereCreatedAt($value)
      * @method static \Illuminate\Database\Eloquent\Builder<Pendaftaran>|Pendaftaran whereUpdatedAt($value)
@@ -1273,7 +1263,10 @@ namespace App\Models {
      * @property string $kategori
      * @property int $kuota
      * @property string $deskripsi
+     * @property string $subLokasi
      * @property string $lokasi
+     * @property string $flag_off
+     * @property string $start
      * @property string $tanggal
      * @property string $nama_event
      * @property int $id
@@ -1282,7 +1275,10 @@ namespace App\Models {
      * @method static \Illuminate\Database\Eloquent\Builder<RunningEvent>|RunningEvent whereId($value)
      * @method static \Illuminate\Database\Eloquent\Builder<RunningEvent>|RunningEvent whereNamaEvent($value)
      * @method static \Illuminate\Database\Eloquent\Builder<RunningEvent>|RunningEvent whereTanggal($value)
+     * @method static \Illuminate\Database\Eloquent\Builder<RunningEvent>|RunningEvent whereStart($value)
+     * @method static \Illuminate\Database\Eloquent\Builder<RunningEvent>|RunningEvent whereFlagOff($value)
      * @method static \Illuminate\Database\Eloquent\Builder<RunningEvent>|RunningEvent whereLokasi($value)
+     * @method static \Illuminate\Database\Eloquent\Builder<RunningEvent>|RunningEvent whereSublokasi($value)
      * @method static \Illuminate\Database\Eloquent\Builder<RunningEvent>|RunningEvent whereDeskripsi($value)
      * @method static \Illuminate\Database\Eloquent\Builder<RunningEvent>|RunningEvent whereKuota($value)
      * @method static \Illuminate\Database\Eloquent\Builder<RunningEvent>|RunningEvent whereKategori($value)

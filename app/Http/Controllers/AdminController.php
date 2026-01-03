@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Pendaftaran;
+use App\Models\RunningEvent;
 
 class AdminController extends Controller
 {
@@ -53,6 +54,27 @@ class AdminController extends Controller
 
     public function create() {
         return view('admin.create');
+    }
+    public function store(Request $request) {
+            // 1. Validasi Data
+            // dd($request);
+        $validated = $request->validate([
+            'nama_event' => 'required|string',
+            'tanggal'    => 'required|date',
+            'start'      => 'required|string', // Pastikan ini ada
+            'flag_off'   => 'required|string', // Pastikan ini ada
+            'lokasi'     => 'required|string',
+            'subLokasi'  => 'required|string', // Pastikan ini ada (perhatikan huruf besar S)
+            'deskripsi'  => 'required|string',
+            'kuota'      => 'required|integer',
+            'kategori'   => 'required|in:5KM,10KM',
+        ]);
+
+        // Sekarang field 'start' dkk tidak akan hilang lagi
+        RunningEvent::create($validated);
+
+        // 3. Redirect dengan pesan sukses
+        return redirect()->route('dashboard')->with('message', 'Event Berhasil Ditambahkan!');
     }
 
     public function pendaftaran()
