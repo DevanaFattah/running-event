@@ -15,8 +15,8 @@ return new class extends Migration
             Schema::create('pesertas', function (Blueprint $table) {
                 $table->id();
                 $table->string('nama');
-                $table->string('nomor_telepon');
-                $table->string('email');
+                $table->string('nomor_telepon')->unique();
+                $table->string('email')->unique();
                 $table->enum('jenis_kelamin', ['L', 'P']);
                 $table->integer('umur');
                 $table->timestamps();

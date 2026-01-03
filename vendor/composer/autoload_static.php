@@ -310,8 +310,8 @@ class ComposerStaticInit23346ce4888d3f652c3a83e0bb6f8827
         'phpDocumentor\\Reflection\\' => 
         array (
             0 => __DIR__ . '/..' . '/phpdocumentor/reflection-common/src',
-            1 => __DIR__ . '/..' . '/phpdocumentor/type-resolver/src',
-            2 => __DIR__ . '/..' . '/phpdocumentor/reflection-docblock/src',
+            1 => __DIR__ . '/..' . '/phpdocumentor/reflection-docblock/src',
+            2 => __DIR__ . '/..' . '/phpdocumentor/type-resolver/src',
         ),
         'Whoops\\' => 
         array (
@@ -453,15 +453,15 @@ class ComposerStaticInit23346ce4888d3f652c3a83e0bb6f8827
         array (
             0 => __DIR__ . '/..' . '/symfony/clock',
         ),
-        'Svg\\' =>
+        'Svg\\' => 
         array (
             0 => __DIR__ . '/..' . '/dompdf/php-svg-lib/src/Svg',
         ),
-        'Sabberworm\\CSS\\' =>
+        'Sabberworm\\CSS\\' => 
         array (
             0 => __DIR__ . '/..' . '/sabberworm/php-css-parser/src',
         ),
-        'Ramsey\\Uuid\\' =>
+        'Ramsey\\Uuid\\' => 
         array (
             0 => __DIR__ . '/..' . '/ramsey/uuid/src',
         ),
@@ -483,8 +483,8 @@ class ComposerStaticInit23346ce4888d3f652c3a83e0bb6f8827
         ),
         'Psr\\Http\\Message\\' => 
         array (
-            0 => __DIR__ . '/..' . '/psr/http-message/src',
-            1 => __DIR__ . '/..' . '/psr/http-factory/src',
+            0 => __DIR__ . '/..' . '/psr/http-factory/src',
+            1 => __DIR__ . '/..' . '/psr/http-message/src',
         ),
         'Psr\\Http\\Client\\' => 
         array (
@@ -560,8 +560,8 @@ class ComposerStaticInit23346ce4888d3f652c3a83e0bb6f8827
         ),
         'Nette\\' => 
         array (
-            0 => __DIR__ . '/..' . '/nette/utils/src',
-            1 => __DIR__ . '/..' . '/nette/schema/src',
+            0 => __DIR__ . '/..' . '/nette/schema/src',
+            1 => __DIR__ . '/..' . '/nette/utils/src',
         ),
         'Monolog\\' => 
         array (
@@ -571,11 +571,11 @@ class ComposerStaticInit23346ce4888d3f652c3a83e0bb6f8827
         array (
             0 => __DIR__ . '/..' . '/mockery/mockery/library/Mockery',
         ),
-        'Masterminds\\' =>
+        'Masterminds\\' => 
         array (
             0 => __DIR__ . '/..' . '/masterminds/html5/src',
         ),
-        'Livewire\\Volt\\' =>
+        'Livewire\\Volt\\' => 
         array (
             0 => __DIR__ . '/..' . '/livewire/volt/src',
         ),
@@ -585,8 +585,8 @@ class ComposerStaticInit23346ce4888d3f652c3a83e0bb6f8827
         ),
         'League\\Uri\\' => 
         array (
-            0 => __DIR__ . '/..' . '/league/uri-interfaces',
-            1 => __DIR__ . '/..' . '/league/uri',
+            0 => __DIR__ . '/..' . '/league/uri',
+            1 => __DIR__ . '/..' . '/league/uri-interfaces',
         ),
         'League\\MimeTypeDetection\\' => 
         array (
@@ -671,11 +671,11 @@ class ComposerStaticInit23346ce4888d3f652c3a83e0bb6f8827
         array (
             0 => __DIR__ . '/..' . '/fruitcake/php-cors/src',
         ),
-        'FontLib\\' =>
+        'FontLib\\' => 
         array (
             0 => __DIR__ . '/..' . '/dompdf/php-font-lib/src/FontLib',
         ),
-        'Flux\\' =>
+        'Flux\\' => 
         array (
             0 => __DIR__ . '/..' . '/livewire/flux/src',
         ),
@@ -695,11 +695,11 @@ class ComposerStaticInit23346ce4888d3f652c3a83e0bb6f8827
         array (
             0 => __DIR__ . '/..' . '/vlucas/phpdotenv/src',
         ),
-        'Dompdf\\' =>
+        'Dompdf\\' => 
         array (
             0 => __DIR__ . '/..' . '/dompdf/dompdf/src',
         ),
-        'Doctrine\\Inflector\\' =>
+        'Doctrine\\Inflector\\' => 
         array (
             0 => __DIR__ . '/..' . '/doctrine/inflector/src',
         ),
@@ -749,11 +749,11 @@ class ComposerStaticInit23346ce4888d3f652c3a83e0bb6f8827
         array (
             0 => __DIR__ . '/..' . '/brick/math/src',
         ),
-        'Barryvdh\\DomPDF\\' =>
+        'Barryvdh\\DomPDF\\' => 
         array (
             0 => __DIR__ . '/..' . '/barryvdh/laravel-dompdf/src',
         ),
-        'BaconQrCode\\' =>
+        'BaconQrCode\\' => 
         array (
             0 => __DIR__ . '/..' . '/bacon/bacon-qr-code/src',
         ),

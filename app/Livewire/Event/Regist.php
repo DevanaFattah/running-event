@@ -25,13 +25,13 @@ class Regist extends Component
         $this->event = $event;
     }
 
-    public function submit() 
+    public function submit()
     {
         // 1. Validasi
         $this->validate([
             'nama_lengkap'  => 'required|string|min:3',
-            'nomor_telepon' => 'required|numeric|digits_between:10,14',
-            'email'         => 'required|email',
+            'nomor_telepon' => 'required|numeric|digits_between:10,14|unique:pesertas,nomor_telepon',
+            'email'         => 'required|email|unique:pesertas,email',
             'jenis_kelamin' => 'required|in:L,P',
             // 'tanggal_lahir' => 'required|date',
             'umur'          => 'required|integer|min:5',
@@ -39,7 +39,7 @@ class Regist extends Component
 
         // 2. Gunakan Database Transaction untuk keamanan data ganda
         DB::transaction(function () {
-            
+
             // Simpan Data Peserta
             $peserta = Peserta::create([
                 'nama'          => $this->nama_lengkap,
