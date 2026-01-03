@@ -15,4 +15,9 @@ class Peserta extends Model
     {
         return $this->hasOne(\App\Models\Pendaftaran::class);
     }
+
+    public function runningEvents()
+    {
+        return $this->hasMany(\App\Models\RunningEvent::class);
+    }
 }
