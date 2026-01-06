@@ -1,5 +1,6 @@
 <x-layouts.app :title="__('Dashboard')">
-    {{-- @dd($stats) --}}
+    {{-- Statistik Card --}}
+    
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6 mb-8">
         @foreach([
             ['label' => 'Total Peserta', 'value' => $stats['total_peserta'], 'color' => 'blue'],
@@ -16,79 +17,81 @@
         @endforeach
     </div>
 
-    <div class="bg-white rounded-2xl shadow-2xl border-2 border-gray-200 overflow-hidden">
-    <div class="p-5 border-b-2 border-gray-100 bg-white">
-        <h3 class="font-black text-gray-800 text-xl tracking-tight">List Pendaftaran Event</h3>
+    <livewire:admin.pendaftaran-table :registrationRows=$registrationRows />
+
+{{-- MODAL KONFIRMASI (HANYA SATU) --}}
+<div x-data="{ open: false, id: '', nama: '', actionUrl: '' }" 
+     x-on:buka-modal-ambil.window="
+        open = true; 
+        id = $event.detail.id; 
+        nama = $event.detail.nama;
+        actionUrl = '{{ route('pendaftaran.ambilBib', ':id') }}'.replace(':id', id);
+     "
+     x-show="open" 
+     class="fixed inset-0 z-[9999] overflow-y-auto"
+     x-cloak>
+    
+    <div x-show="open" x-transition.opacity class="fixed inset-0 bg-black/70 backdrop-blur-sm"></div>
+
+    <div class="relative min-h-screen flex items-center justify-center p-6">
+        <div x-show="open" 
+             x-transition:enter="transition ease-out duration-300"
+             x-transition:enter-start="scale-95 opacity-0"
+             x-transition:enter-end="scale-100 opacity-100"
+             x-on:click.away="open = false" 
+             {{-- max-w-lg membuat modal jauh lebih besar dari sebelumnya --}}
+             class="bg-white dark:bg-[#1e1e1e] w-full max-w-lg rounded-[3rem] p-10 shadow-2xl border border-gray-100 dark:border-white/5 relative overflow-hidden">
+            
+            <div class="absolute top-0 left-0 w-full h-2 bg-emerald-500"></div>
+
+            <div class="text-center py-4">
+                <div class="mx-auto h-24 w-24 bg-emerald-100 dark:bg-emerald-500/10 rounded-full flex items-center justify-center mb-6 shadow-inner">
+                    <svg class="h-12 w-12 text-emerald-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7" />
+                    </svg>
+                </div>
+                
+                <h3 class="text-3xl font-black text-gray-900 dark:text-white uppercase tracking-tighter">Konfirmasi Ambil</h3>
+                
+                <div class="mt-4 p-4 bg-gray-50 dark:bg-white/5 rounded-2xl border border-dashed border-gray-200 dark:border-white/10">
+                    <p class="text-gray-500 dark:text-gray-400 font-medium">Anda akan menandai BIB milik:</p>
+                    <p class="text-2xl font-black text-indigo-500 mt-1 italic" x-text="nama"></p>
+                </div>
+            </div>
+
+            <div class="mt-10 flex flex-col gap-3">
+                <form x-bind:action="actionUrl" method="POST">
+                    @csrf
+                    <button type="submit" 
+                        class="w-full py-5 bg-emerald-600 hover:bg-emerald-500 text-white rounded-2xl font-black text-lg uppercase tracking-[0.1em] shadow-xl shadow-emerald-500/30 transition-all active:scale-95 flex items-center justify-center gap-3">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7" />
+                        </svg>
+                        Konfirmasi Sekarang
+                    </button>
+                </form>
+
+                <button x-on:click="open = false" type="submit"
+                    class="w-full py-4 text-gray-400 font-bold hover:text-gray-600 dark:hover:text-white transition-colors uppercase text-sm tracking-widest">
+                    Batalkan Pengambilan
+                </button>
+            </div>
+        </div>
     </div>
-    <div class="overflow-x-auto">
-        <table class="w-full text-left">
-            <thead class="bg-gray-100/50 text-gray-600 text-xs uppercase tracking-tighter">
-                <tr>
-                    <th class="px-8 py-4 border-b whitespace-nowrap min-w-[150px]">Nama Lengkap</th>
-                    <th class="px-8 py-4 border-b whitespace-nowrap min-w-[120px]">No. WhatsApp</th>
-                    <th class="px-8 py-4 border-b whitespace-nowrap min-w-[180px]">Kategori Event</th>
-                    <th class="px-8 py-4 border-b whitespace-nowrap text-center min-w-[120px]">No. BIB</th>
-                    <th class="px-8 py-4 border-b whitespace-nowrap min-w-[150px]">Status</th>
-                    <th class="px-8 py-4 border-b whitespace-nowrap text-right min-w-[250px]">Aksi Admin</th>
-                </tr>
-            </thead>
-            <tbody class="divide-y divide-gray-200">
-                @foreach($registrations as $reg)
-                <tr class="hover:bg-gray-50/80 transition-colors">
-                    <td class="px-4 py-6 font-bold text-gray-900 whitespace-nowrap">{{ $reg['nama'] }}</td>
-                    <td class="px-4 py-6 text-gray-700 whitespace-nowrap">{{ $reg['no_hp'] }}</td>
-                    
-                    {{-- FIX KATEGORI EVENT: Pakai whitespace-nowrap --}}
-                    <td class="px-4 py-6 whitespace-nowrap">
-                        <span class="inline-block px-3 py-1 bg-gray-900 text-white rounded-md text-xs font-bold shadow-sm">
-                            {{ $reg['event'] }}
-                        </span>
-                    </td>
+</div> 
 
-                    {{-- FIX NO BIB: Pakai whitespace-nowrap --}}
-                    <td class="px-4 py-6 text-center whitespace-nowrap">
-                        <span class="inline-block font-mono bg-yellow-100 text-yellow-800 px-3 py-1 rounded-fulxl border border-yellow-200 text-xs font-bold">
-                            {{ $reg['bib'] }}
-                        </span>
-                    </td>
-
-                    <td class="px-4 py-6 whitespace-nowrap">
-                        <span class="{{ $reg['is_taken'] ? 'text-green-600' : 'text-red-500' }} font-black text-xs uppercase italic">
-                            ● {{ $reg['status_bib'] }}
-                        </span>
-                    </td>
-
-                    <td class="px-8 py-6 text-right">
-                        <div class="flex justify-end items-center gap-3">
-                            @if(!$reg['is_taken'])
-                                <form action="#" method="POST">
-                                    @csrf
-                                    <button type="submit" class="whitespace-nowrap bg-emerald-600 hover:bg-emerald-700 text-white px-4 py-2 rounded-lg text-xs font-bold uppercase transition shadow-md">
-                                        Tandai Diambil
-                                    </button>
-                                </form>
-                            @else
-                                <span class="bg-gray-100 text-emerald-700 px-4 py-2 rounded-lg text-xs font-bold uppercase border border-emerald-200">
-                                    Selesai
-                                </span>
-                            @endif
-
-                            {{-- Tombol Cetak BIB --}}
-                            @if($reg['is_taken'])
-                                <a href="#" class="whitespace-nowrap bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg text-xs font-bold uppercase transition shadow-md">
-                                    Cetak BIB
-                                </a>
-                            @else
-                                <button disabled class="whitespace-nowrap bg-gray-200 text-gray-400 cursor-not-allowed px-4 py-2 rounded-lg text-xs font-bold uppercase border border-gray-300">
-                                    Cetak BIB
-                                </button>
-                            @endif
-                        </div>
-                    </td>
-                </tr>
-                @endforeach
-            </tbody>
-        </table>
-    </div>
-</div>
+<script>
+    function openAmbilBib(id, nama) {
+        // Log ini untuk memastikan tombol beneran kepencet
+        // console.log('Tombol ditekan untuk ID:', id); 
+        
+        // Kirim sinyal ke Alpine Modal
+        window.dispatchEvent(new CustomEvent('buka-modal-ambil', { 
+            detail: { 
+                id: id, 
+                nama: nama 
+            } 
+        }));
+    }
+</script>
 </x-layouts.app>

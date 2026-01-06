@@ -29,7 +29,7 @@
 </nav>
 
   <!-- Detail -->
-  <livewire:event.detail />
+  <livewire:event.detail :event="$event"/>
  
   <!-- EVENTS LIST -->
   <livewire:event.list />
